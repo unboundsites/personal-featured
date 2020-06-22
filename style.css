@@ -1,0 +1,375 @@
+@font-face {
+  font-family: "blokk";
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/5028/BLOKKNeue-Regular.woff");
+}
+body {
+  font-family: "Karla", sans-serif;
+  font-size: 1rem;
+  color: #f9f9f9;
+  line-height: 1.5;
+  position: relative;
+  height: 100vh;
+}
+@media (min-width: 800px) {
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-self: center;
+  }
+}
+
+.bg-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+.bg-image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.app-inner {
+  max-width: 550px;
+  margin: auto;
+  padding: 2rem 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+@media (min-width: 600px) {
+  .app-inner {
+    padding: 4rem;
+  }
+}
+@media (min-width: 800px) {
+  .app-inner {
+    max-width: 800px;
+  }
+}
+
+.horz-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: flex;
+}
+
+.profile-header {
+  text-align: center;
+  position: relative;
+}
+@media (min-width: 600px) {
+  .profile-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 2rem;
+    -webkit-box-align: center;
+            align-items: center;
+    text-align: left;
+  }
+}
+@media (min-width: 600px) {
+  .profile-header {
+    grid-gap: 3rem;
+  }
+}
+
+.profile-image {
+  position: relative;
+}
+.profile-image img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+.profile-info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  display: none;
+}
+@media (min-width: 600px) {
+  .profile-info {
+    right: -10px;
+  }
+}
+
+.photo-instructions {
+  max-width: 200px;
+  background-color: #ccc;
+  padding: 0.5rem 1rem;
+  margin: 1.5rem 0;
+  position: absolute;
+  top: 20px;
+  right: 0;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  z-index: -1;
+  opacity: 0;
+}
+@media (min-width: 600px) {
+  .photo-instructions {
+    left: 200px;
+    max-width: 250px;
+  }
+}
+.photo-instructions.open {
+  -webkit-animation: popIn 400ms ease forwards;
+          animation: popIn 400ms ease forwards;
+  z-index: 100;
+}
+.photo-instructions p {
+  font-weight: 700;
+  color: #333;
+}
+
+.instructions-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  text-align: right;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.profile-name {
+  margin: 1rem 0;
+  font-size: 2.5rem;
+  line-height: 1;
+}
+@media (min-width: 800px) {
+  .profile-name {
+    font-size: 3.5rem;
+  }
+}
+
+.profile-title {
+  margin: 0 0 2rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+@media (min-width: 600px) {
+  .profile-title {
+    font-size: 1.33rem;
+  }
+}
+@media (min-width: 800px) {
+  .profile-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 800px) {
+  .profile-text {
+    margin-top: 3rem;
+  }
+}
+@media (min-width: 600px) {
+  .profile-text p {
+    font-size: 1.33rem;
+  }
+}
+@media (min-width: 800px) {
+  .profile-text p {
+    font-size: 1.5rem;
+  }
+}
+.profile-text a {
+  color: #333;
+  -webkit-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
+}
+.profile-text a:hover {
+  opacity: 0.7;
+}
+.profile-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 0;
+}
+.profile-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0;
+}
+.profile-text h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0;
+}
+.profile-text h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0;
+}
+.profile-text h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0;
+}
+
+.profile-social {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.profile-social-headline {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.connect-info {
+  text-align: center;
+  margin: 0 0 2rem;
+  position: relative;
+  z-index: 100;
+}
+
+.profile-social-instructions {
+  background: #eee;
+  padding: 0.5rem 1rem;
+  margin: 0 0 1.5rem;
+  display: none;
+  text-align: center;
+  position: relative;
+}
+
+.social-menu {
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.social-menu-item {
+  margin: 0 1rem;
+}
+.social-menu-item a {
+  color: #333;
+  -webkit-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
+  display: inline-block;
+}
+.social-menu-item a:hover {
+  opacity: 0.7;
+}
+.social-menu-item img {
+  width: 45px;
+  height: 45px;
+}
+
+[mv-progress] {
+  font-family: blokk, sans-serif;
+  opacity: 0.1;
+}
+[mv-progress] .regular-image {
+  display: none;
+}
+[mv-progress] .placeholder-image {
+  display: block;
+}
+
+[mv-mode="edit"] .photo-instructions,
+[mv-mode="edit"] .profile-info {
+  display: block;
+}
+[mv-mode="edit"] .bg-overlay {
+  display: none;
+}
+
+.mce-text {
+  color: #333 !important;
+}
+
+@-webkit-keyframes popIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@media (min-width: 600px) {
+  @-webkit-keyframes popIn {
+    0% {
+      opacity: 0;
+      -webkit-transform: scale(0);
+              transform: scale(0);
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      -webkit-transform: scale(0);
+              transform: scale(0);
+    }
+    60% {
+      opacity: 1;
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+}
